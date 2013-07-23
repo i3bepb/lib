@@ -1,6 +1,6 @@
 <?php
-namespace i3bebp;
-class Send extends \i3bebp\Singleton {
+namespace i3bepb;
+class Send extends \i3bepb\Singleton {
     static protected $_instance = null;
     protected $ch = null, $methodSend = 'socket';
 

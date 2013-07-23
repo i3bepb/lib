@@ -1,5 +1,5 @@
 <?php
-namespace i3bebp;
+namespace i3bepb;
 class develop {
     static public function log($text) {
         $f = realpath($_SERVER['DOCUMENT_ROOT'] . '/../') . '/mylog.txt';
