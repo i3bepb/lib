@@ -7,3 +7,5 @@ Library i3bepb
   * Class Debug;
   * Class Send;
   * Class Func(rootDir);
+  * Class Console;
+  
