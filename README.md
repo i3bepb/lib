@@ -6,3 +6,4 @@ Library i3bepb
   * Class Singleton;
   * Class Debug;
   * Class Send;
+  * Class Func(rootDir);
