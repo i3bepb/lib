@@ -9,8 +9,8 @@ class Func {
 			if(php_sapi_name() !== 'cli') {
 				self::$rootDir = realpath($_SERVER['DOCUMENT_ROOT'] . '/../');
 			} else {
-				// @todo: definition root dir
-                self::$rootDir = 'c:\webserver\home\app';
+				// @todo: define root dir
+                self::$rootDir = dirpath(__FILE__);
 			}
 		}
 		return self::$rootDir;
