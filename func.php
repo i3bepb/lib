@@ -4,13 +4,30 @@ namespace i3bepb;
 class Func {
 	protected static $rootDir = null;
 
+    static private function lookRootDir($dir) {
+        $find = false;
+        $rootFolders = array('www', 'public');
+        if(file_exists($dir) && is_dir($dir)) {
+            self::$rootDir = dirname($dir);
+            $arr = scandir(self::$rootDir);
+            foreach($rootFolders as $v) {
+                if(in_array($v, $arr)) {
+                    $find = true;
+                    break;
+                }
+            }
+            if(!$find) self::lookRootDir(self::$rootDir);
+        } else {
+            throw new \Exception("Can not be determined root dir");
+        }
+    }
+
     static public function rootDir() {
 		if(!self::$rootDir) {
 			if(php_sapi_name() !== 'cli') {
 				self::$rootDir = realpath($_SERVER['DOCUMENT_ROOT'] . '/../');
 			} else {
-				// @todo: define root dir
-                self::$rootDir = dirpath(__FILE__);
+                self::lookRootDir(__DIR__);
 			}
 		}
 		return self::$rootDir;
