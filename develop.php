@@ -2,7 +2,7 @@
 namespace i3bepb;
 class develop {
     static public function log($text) {
-        $f = realpath($_SERVER['DOCUMENT_ROOT'] . '/../') . '/mylog.txt';
+        $f = Func::rootDir() . '/mylog.txt';
         if(!$f) exit('not exist mylog.txt');
         $fp = fopen($f, 'a') or die('err my log');
         fputs($fp, $text . "\r\n");
