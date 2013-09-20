@@ -6,6 +6,5 @@
     },
     "autoload":{
         "psr-0":{"i3bepb":""}
-    },
-    "target-dir": "i3bepb"	
+    }
 }
