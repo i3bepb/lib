@@ -32,6 +32,10 @@ class Send extends \i3bepb\Singleton {
             curl_setopt($this->ch, CURLOPT_POST, 1);
             curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->formateDataForSend($opt['data']));
         }
+        if(!empty($opt['user']) && !empty($opt['password'])) {
+            curl_setopt($this->ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+            curl_setopt($this->ch,CURLOPT_USERPWD, $opt['user'] . ":" . $opt['password']);
+        }
         $r = curl_exec($this->ch);
         return $r;
     }
